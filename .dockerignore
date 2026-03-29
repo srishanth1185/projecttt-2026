@@ -1,7 +1,9 @@
 # Local build artifacts
 target/
+backend/target/
 frontend/dist/
 frontend/node_modules/
+node_modules/
 
 # IDE files
 .idea/
@@ -11,12 +13,24 @@ frontend/node_modules/
 # OS files
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# Docker
+# Docker / Deployment
 Dockerfile
 .dockerignore
-Procfile
-
-# Version Control
-.git/
+.git
 .gitignore
+Procfile
+backend/Procfile
+
+# Java / Maven artifacts
+*.class
+*.jar
+*.war
+*.ear
+.factorypath
+.mvn/
+mvnw
+mvnw.cmd
+backend/mvnw
+backend/mvnw.cmd

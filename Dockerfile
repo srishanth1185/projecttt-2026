@@ -21,7 +21,9 @@ RUN mvn clean package -DskipTests
 # ─── Stage 3: Final Runtime Image ───
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
-COPY --from=backend-build /app/backend/target/smart-parking-system-1.0.0.jar app.jar
+
+# The JAR file is built in Stage 2 inside /app/backend/target/
+COPY --from=backend-build /app/backend/target/*.jar app.jar
 
 # Standard port for Spring Boot
 EXPOSE 8080
