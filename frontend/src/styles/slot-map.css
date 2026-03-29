@@ -1,0 +1,340 @@
+/* ============================================
+   SMART PARKING SYSTEM — Slot Map Styles
+   ============================================ */
+
+.slot-map-page {
+  animation: fadeInUp 0.35s var(--ease-out);
+}
+
+/* ── Top Bar ── */
+.slot-map-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.slot-map-location-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.slot-map-location-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.slot-map-location-name {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+}
+
+.slot-map-location-sub {
+  font-size: var(--fs-sm);
+  color: var(--text-tertiary);
+}
+
+.slot-map-quick-stats {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.quick-stat {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--bg-card);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-sm);
+}
+
+.quick-stat .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.quick-stat .dot.available { background: var(--color-available); }
+.quick-stat .dot.occupied  { background: var(--color-occupied);  }
+.quick-stat .dot.reserved  { background: var(--color-reserved);  }
+
+.quick-stat .qs-value {
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+}
+
+.quick-stat .qs-label {
+  color: var(--text-tertiary);
+}
+
+/* ── Floor / Zone Tabs ── */
+.floor-zone-nav {
+  display: flex;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.floor-tabs,
+.zone-tabs {
+  display: flex;
+  gap: var(--space-1);
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: var(--space-1);
+  border: 1px solid var(--bg-glass-border);
+}
+
+/* ── Legend ── */
+.slot-legend {
+  display: flex;
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+.legend-swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-sm);
+}
+
+.legend-swatch.available  { background: var(--color-available); }
+.legend-swatch.occupied   { background: var(--color-occupied);  }
+.legend-swatch.reserved   { background: var(--color-reserved);  }
+.legend-swatch.handicapped {
+  background: var(--color-handicapped);
+}
+
+/* ── Parking Grid ── */
+.parking-grid-wrapper {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.parking-grid-label {
+  font-size: var(--fs-sm);
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: var(--fw-semibold);
+}
+
+.parking-aisle {
+  margin-bottom: var(--space-6);
+}
+
+.parking-aisle:last-child {
+  margin-bottom: 0;
+}
+
+.aisle-label {
+  font-size: var(--fs-xs);
+  color: var(--text-tertiary);
+  font-weight: var(--fw-medium);
+  margin-bottom: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.aisle-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-subtle);
+}
+
+.parking-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: var(--space-3);
+}
+
+/* ── Parking Slot ── */
+.parking-slot {
+  aspect-ratio: 1;
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+  position: relative;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  min-height: 72px;
+}
+
+.parking-slot .slot-id {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.05em;
+}
+
+.parking-slot .slot-icon {
+  font-size: 1.1rem;
+}
+
+.parking-slot .slot-type {
+  font-size: 0.625rem;
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+/* Available */
+.parking-slot.available {
+  background: var(--color-available-bg);
+  border-color: hsla(152, 69%, 45%, 0.25);
+  color: var(--color-available);
+}
+
+.parking-slot.available:hover {
+  background: hsla(152, 69%, 45%, 0.25);
+  border-color: var(--color-available);
+  transform: scale(1.05);
+  box-shadow: 0 0 16px var(--color-available-glow);
+}
+
+/* Occupied */
+.parking-slot.occupied {
+  background: var(--color-occupied-bg);
+  border-color: hsla(0, 72%, 55%, 0.25);
+  color: var(--color-occupied);
+  cursor: not-allowed;
+}
+
+.parking-slot.occupied:hover {
+  background: hsla(0, 72%, 55%, 0.2);
+}
+
+/* Reserved */
+.parking-slot.reserved {
+  background: var(--color-reserved-bg);
+  border-color: hsla(40, 95%, 55%, 0.25);
+  color: var(--color-reserved);
+  cursor: not-allowed;
+}
+
+.parking-slot.reserved:hover {
+  background: hsla(40, 95%, 55%, 0.2);
+}
+
+/* Handicapped overlay */
+.parking-slot.handicapped::after {
+  content: '♿';
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 0.6rem;
+  opacity: 0.6;
+}
+
+/* ── Slot Tooltip ── */
+.slot-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-secondary);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+  white-space: nowrap;
+  box-shadow: var(--shadow-md);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--duration-fast);
+  z-index: 10;
+}
+
+.parking-slot:hover .slot-tooltip {
+  opacity: 1;
+}
+
+.slot-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--bg-secondary);
+}
+
+/* ── "Road" divider between rows ── */
+.parking-road {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: var(--space-2) 0;
+}
+
+.parking-road::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--text-tertiary) 0,
+    var(--text-tertiary) 16px,
+    transparent 16px,
+    transparent 28px
+  );
+  opacity: 0.2;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .slot-map-topbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .slot-map-quick-stats {
+    flex-wrap: wrap;
+  }
+
+  .parking-grid {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: var(--space-2);
+  }
+
+  .parking-slot {
+    min-height: 60px;
+  }
+}

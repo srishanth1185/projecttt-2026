@@ -1,0 +1,271 @@
+/* ============================================
+   SMART PARKING SYSTEM — Dashboard Styles
+   ============================================ */
+
+.dashboard-page {
+  animation: fadeInUp 0.35s var(--ease-out);
+}
+
+/* ── Stats Grid ── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+  margin-bottom: var(--space-8);
+}
+
+@media (max-width: 1200px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 576px) {
+  .stats-grid { grid-template-columns: 1fr; }
+}
+
+/* Stat icon variants */
+.stat-icon-total {
+  background: hsla(210, 100%, 56%, 0.12);
+  color: var(--accent-primary);
+}
+
+.stat-icon-available {
+  background: var(--color-available-bg);
+  color: var(--color-available);
+}
+
+.stat-icon-occupied {
+  background: var(--color-occupied-bg);
+  color: var(--color-occupied);
+}
+
+.stat-icon-rate {
+  background: var(--color-reserved-bg);
+  color: var(--color-reserved);
+}
+
+/* ── Location Cards Grid ── */
+.locations-section {
+  margin-bottom: var(--space-8);
+}
+
+.locations-section .section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+}
+
+.locations-section .section-title {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+}
+
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+}
+
+@media (max-width: 992px) {
+  .locations-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Location Card ── */
+.location-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.location-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent-gradient);
+  opacity: 0;
+  transition: opacity var(--duration-normal);
+}
+
+.location-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.location-card:hover::before {
+  opacity: 1;
+}
+
+.location-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+}
+
+.location-card-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.location-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.location-card-name {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+}
+
+.location-card-address {
+  font-size: var(--fs-xs);
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+.location-card-status .badge {
+  font-size: 0.7rem;
+}
+
+.location-card-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.location-stat {
+  text-align: center;
+}
+
+.location-stat .stat-num {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+}
+
+.location-stat .stat-label {
+  font-size: var(--fs-xs);
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+.location-card-bar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.location-card-bar .bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--fs-xs);
+  color: var(--text-tertiary);
+}
+
+/* ── Bottom Row (Charts + Activity) ── */
+.dashboard-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+
+@media (max-width: 992px) {
+  .dashboard-bottom { grid-template-columns: 1fr; }
+}
+
+/* chart card */
+.chart-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.chart-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+}
+
+.chart-card-title {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+}
+
+.chart-canvas-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+/* ── Recent Activity ── */
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  transition: background var(--duration-fast);
+}
+
+.activity-item:hover {
+  background: hsla(210, 100%, 56%, 0.04);
+}
+
+.activity-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.activity-dot.booked   { background: var(--color-reserved);  }
+.activity-dot.released { background: var(--color-available); }
+.activity-dot.occupied { background: var(--color-occupied);  }
+
+.activity-text {
+  flex: 1;
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+.activity-text strong {
+  color: var(--text-primary);
+  font-weight: var(--fw-semibold);
+}
+
+.activity-time {
+  font-size: var(--fs-xs);
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}

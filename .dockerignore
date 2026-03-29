@@ -1,0 +1,22 @@
+# Local build artifacts
+target/
+frontend/dist/
+frontend/node_modules/
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker
+Dockerfile
+.dockerignore
+Procfile
+
+# Version Control
+.git/
+.gitignore
