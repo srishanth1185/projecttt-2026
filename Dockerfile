@@ -10,12 +10,14 @@ RUN npm run build
 FROM maven:3.8.5-eclipse-temurin-17-alpine AS backend-build
 WORKDIR /app/backend
 
-# Copy the built frontend to the static target in backend
-COPY --from=frontend-build /app/frontend/dist /app/backend/src/main/resources/static
-
-# Build the JAR
+# 1. Copy backend source first
 COPY backend/pom.xml .
 COPY backend/src ./src
+
+# 2. Inject the built frontend into the backend resources
+COPY --from=frontend-build /app/frontend/dist /app/backend/src/main/resources/static
+
+# 3. Build the JAR with static resources included
 RUN mvn clean package -DskipTests
 
 # ─── Stage 3: Final Runtime Image ───

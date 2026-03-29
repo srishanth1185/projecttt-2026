@@ -1,6 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
+console.log("🚀 Smart Parking System Initializing...");
+
 /* ── Custom Premium Styles ── */
 import './styles/variables.css';
 import './styles/base.css';
