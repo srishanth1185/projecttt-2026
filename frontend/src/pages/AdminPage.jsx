@@ -241,4 +241,3 @@ const AdminPage = () => {
 };
 
 export default AdminPage;
-迫

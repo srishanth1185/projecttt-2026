@@ -214,4 +214,3 @@ const getSlotIcon = (slot) => {
 };
 
 export default SlotMapPage;
-迫

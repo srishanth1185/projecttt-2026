@@ -104,4 +104,3 @@ const BookingModal = ({ slot, onClose, onSuccess }) => {
 };
 
 export default BookingModal;
-迫
